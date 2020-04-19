@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>发布新文章页面</title>
+</head>
+<body>
+    <form action="{% url "blog:edit_action" %}" method="post" >
+        {% csrf_token %}
+
+        <label><h3>文章标题：</h3></label>
+        <input type="text" name="title" {% if art %}value="{{ art.title }}{% endif %}">
+        <br>
+        <br>
+        <br>
+        <label><h3>文章内容 ：</h3></label>
+        <input type="text" name="content" {% if art %}value="{{ art.content }}{% endif %}">
+        <br>
+        <br>
+        <br>
+        <label><h3>作者 ：</h3></label>
+        <input type="text" name="author" {% if art %}value="{{ art.author }}{% endif %}">
+        <br>
+        <br>
+        <br>
+        <label><h3>类别 ：</h3></label>
+        <input type="text" name="art_class" {% if art %}value="{{ art.art_class }}{% endif %}">
+
+        <input type="hidden" value="{{ art.id | default:'0'}}" name="art_id">
+        <br>
+        <br>
+        <br>
+        <input type="submit" value="提交保存">
+
+    </form>
+    <a href="{% url 'blog:index' %}"><h2>返回主页</h2></a>
+</body>
+</html>

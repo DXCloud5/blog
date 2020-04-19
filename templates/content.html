@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文章详情页</title>
+</head>
+<body>
+
+    <h1>{{ art.title }}</h1>
+    <h2>{{ art.content}}</h2>
+    <h2>{{ art.pub_time }}</h2>
+    <h2>{{ art.author }}</h2>
+    <h2>{{ art.art_class }}</h2>
+    <br>
+    <br>
+    <br>
+    <a href="{% url 'blog:edit' art.id %}"><h1>修改文章</h1></a>
+    <a href="{% url 'blog:index' %}"><h2>返回主页</h2></a>
+    <a href="{% url 'blog:mydelete' art.id %}"><h1>删除文章</h1></a>
+
+</body>
+</html>

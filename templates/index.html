@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>欢迎来到我的博客页面</title>
+</head>
+<body>
+    <h1>博客文章列表如下：</h1>
+    <br>
+    <br>
+    {% for art in articles %}
+        <a style="text-decoration: none" href="{% url 'blog:detail' art.id %}"><h2>{{ forloop.counter }}    {{ art.title }}</h2></a>
+    {% endfor %}
+    <br>
+    <br>
+    <br>
+    <a href="{% url 'blog:edit' 0 %}"><h1>发布新文章</h1></a>
+
+</body>
+</html>
